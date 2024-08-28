@@ -3,7 +3,7 @@ import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/navbar/Navbar";
 import { Footer } from "@/components/homepage/footer";
-
+import { Analytics } from "@vercel/analytics/react"
 const inter = Inter({ subsets: ["latin"] });
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -23,6 +23,7 @@ export default function RootLayout({
         <Navbar />
           {children}
         <Footer />
+        <Analytics />
       </body>
       
     </html>
