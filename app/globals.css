@@ -85,60 +85,6 @@
   bottom: 0;
 } */
 
-.about_1 {
-  background-image: url('./assets/about1.png');
-  height: 400px;
-  background-size: cover;
-  background-position: center;
-  position: 'absolute';
-  background-color: #1F1F1F;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 20px;
-}
-
-.about_2 {
-  background-image: url('./assets/about2.png');
-  height: 400px;
-  background-size: fill;
-  background-repeat: no-repeat;
-  background-position: right;
-  position: 'absolute';
-  border-radius: 20px;
-  background-color: #1F1F1F;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
-.about_3 {
-  background-image: url('./assets/about3.jpeg');
-  height: 195px;
-  background-size: cover;
-  background-position: center;
-  position: 'absolute';
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 20px;
-}
-
-.about_4 {
-  background-image: url('./assets/about4.jpeg');
-  height: 195px;
-  background-size: cover;
-  background-position: center;
-  position: 'absolute';
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 20px;
-}
 
 .typograpy {
   font-family: Manrope;

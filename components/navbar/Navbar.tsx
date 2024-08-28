@@ -17,8 +17,9 @@ export function Navbar() {
             height={100}
             className="w-36 h-9"
           /> */}
-          <span className="text-violet-700 font-[900] text-[22px]">Shopno</span>
-          <span className="text-green-600 font-[800] text-[22px]">Chowea</span>
+          <span className="text-primary font-[900] text-[22px]">Blood</span>
+          <span className="font-[900] text-[24px] text-rose-700 px-1">&</span>
+          <span className="text-primary font-[800] text-[22px]">Heart</span>
          
         </Link>
       </div>
@@ -26,7 +27,7 @@ export function Navbar() {
       <div className="flex items-center gap-x-2 ms-auto md:col-span-3">
         {/* <Button>Login</Button>
         <Button variant={"secondary"}>Register</Button> */}
-        <div className="border border-spacing-2 border-green-400 bg-green-500 rounded-full px-6 py-2 text-white  hover:bg-background hover:font-bold cursor-pointer font-semibold">
+        <div className="border border-spacing-2 border-primary bg-primary rounded-full px-6 py-2 text-white  hover:bg-rose-700 hover:font-bold cursor-pointer font-semibold">
           {`> Donate`}
         </div>
         <div className="md:hidden">

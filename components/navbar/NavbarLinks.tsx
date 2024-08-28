@@ -33,8 +33,8 @@ export function NavbarLinks() {
             key={item.id}
             className={cn(
               location === item.href
-                ? "text-green-500 font-bold"
-                : "hover:text-green-500 hover:bg-opacity-76 hover:font-bold text-gray-700",
+                ? "text-primary font-bold"
+                : "hover:text-primary hover:bg-opacity-76 hover:font-bold text-gray-700",
               "group flex items-center px-2 py-2 font-medium rounded-md"
             )}
           >

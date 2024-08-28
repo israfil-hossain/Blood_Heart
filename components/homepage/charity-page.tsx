@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { EventCard, SectionTitle, StatCard } from "../common/Card";
 import { Button } from "../ui/button";
-import { Heart, Leaf, Users } from "lucide-react";
+import { BadgePlus, Heart, Leaf, Users } from "lucide-react";
+import { coverimage } from "@/app/assets";
 
 export default function CharityPage() {
   return (
@@ -12,7 +13,7 @@ export default function CharityPage() {
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
               <Image
-                src="/placeholder.svg?height=400&width=600"
+                src={coverimage}
                 width={600}
                 height={400}
                 alt="A person working in a field"
@@ -30,7 +31,7 @@ export default function CharityPage() {
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Button className="inline-flex h-10 items-center justify-center rounded-md bg-green-600 px-8 text-sm font-medium text-white shadow transition-colors hover:bg-green-700 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-green-700 disabled:pointer-events-none disabled:opacity-50">
+                  <Button className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-white shadow transition-colors hover:bg-rose-700 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-rose-700 disabled:pointer-events-none disabled:opacity-50">
                     Read More
                   </Button>
                 </div>
@@ -50,16 +51,16 @@ export default function CharityPage() {
                 to those in need, fostering growth and empowerment.
               </p>
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-                <StatCard icon={Leaf} title="1950" description="Year Founded" />
+                <StatCard icon={BadgePlus} title="2020" description="Year Founded" />
                 <StatCard
                   icon={Users}
-                  title="20048"
+                  title="10000"
                   description="People Helped"
                 />
-                <StatCard icon={Heart} title="495" description="Volunteers" />
+                <StatCard icon={Heart} title="150" description="Volunteers" />
                 <StatCard
                   icon={Leaf}
-                  title="33009"
+                  title="500"
                   description="Trees Planted"
                 />
               </div>

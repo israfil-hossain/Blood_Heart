@@ -10,9 +10,9 @@ const SectionTitle = ({ title }:{title : string}) => (
 const StatCard = ({ icon: Icon, title, description }:{icon:any, title:string, description:string}) => (
   <Card>
     <CardContent className="flex flex-col items-center space-y-2 p-6">
-      <Icon className="h-12 w-12 text-green-600" />
+      <Icon className="h-12 w-12 text-primary" />
       <h3 className="text-2xl font-bold">{title}</h3>
-      <p className="text-sm text-gray-500 dark:text-gray-400">{description}</p>
+      <p className="text-sm text-rose-400 dark:text-rose-300">{description}</p>
     </CardContent>
   </Card>
 );

@@ -11,6 +11,13 @@ import telegram from "./icons/telegram.svg";
 import discord from "./icons/discord.svg"; 
 import image_logo from "./icons/image.svg"; 
 
+import freemedicine from "./featured/freemedicine.jpg";
+import freefood from "./featured/freefood.jpg"; 
+import freemedical from "./featured/freemedical_camp.jpg"; 
+import freemedicine2 from "./featured/freemedicine2.jpg";
+import blooddonate from "./featured/blood_donate.jpg"; 
+import coverimage from "./featured/coverimage.jpg"; 
+import coverimage2 from "./featured/coverimage1.jpg"; 
 export {
     logo, 
     logohorizontal, 
@@ -23,5 +30,12 @@ export {
     skype, 
     telegram, 
     discord, 
-    image_logo
+    image_logo,
+    freemedicine,
+    freefood,
+    freemedical,
+    freemedicine2,
+    blooddonate,
+    coverimage,
+    coverimage2
 }
