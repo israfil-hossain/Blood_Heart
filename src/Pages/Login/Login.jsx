@@ -1,5 +1,7 @@
+'use client';
 import { useContext, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 import { FaCircleCheck } from "react-icons/fa6";
@@ -13,9 +15,9 @@ const Login = () => {
 
     const { user, signIn, googleSignIn, loading, setLoading } = useContext(AuthContext);
 
-    const location = useLocation();
-    // console.log(location);
-    const navigate = useNavigate();
+    const pathname = usePathname();
+    // console.log(pathname);
+    const router = useRouter();
     const [loginError, setLoginError] = useState('');
 
     const handleLogin = e => {
@@ -41,7 +43,7 @@ const Login = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
-                navigate(location?.state ? location?.state : '/')
+                router.push('/')
             })
             .catch(err => {
                 console.log(err.message);
@@ -75,7 +77,7 @@ const Login = () => {
                         <div className="w-full flex-1 max-w-xl rounded-md shadow p-5 sm:p-8 bg-gray-800 text-gray-100" >
                             <h2 className="mb-3 text-3xl font-semibold text-center">Login to your account</h2>
                             <p className="text-sm text-center text-gray-400 hover:scale-110 transform transition-transform duration-300">Dont have account?
-                                <Link to='/register' rel="noopener noreferrer" className="focus:underline hover:underline ml-5 text-red-500 text-xl">Register here</Link>
+                                <Link href='/register' rel="noopener noreferrer" className="focus:underline hover:underline ml-5 text-red-500 text-xl">Register here</Link>
                             </p>
 
                             <form onSubmit={handleLogin} action="" className="space-y-8">

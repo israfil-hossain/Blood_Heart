@@ -1,3 +1,4 @@
+'use client';
 import JoditEditor from 'jodit-react';
 import { useRef, useState } from 'react';
 import parse from 'html-react-parser';
@@ -7,13 +8,13 @@ import Swal from 'sweetalert2';
 import useAuth from '../../Hooks/useAuth';
 import { useQuery } from '@tanstack/react-query';
 import BlogCard from '../../components/BlogCard/BlogCard';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 import useBlogs from '../../Hooks/useBlogs';
 const AddBlog = () => {
     const editor = useRef(null);
     const [content, setContent] = useState('');
     const {user} = useAuth();
-    const navigate = useNavigate();
+    const router = useRouter();
     const [blogs,isLoading,refetch] = useBlogs();
     //  // tanstack query for updated data get 
     //  const { data: blogs = [], refetch } = useQuery({
@@ -56,7 +57,7 @@ console.log(user);
                     showConfirmButton: false,
                     timer: 1500
                   });
-                  navigate('/dashboard/content-management')
+                  router.push('/dashboard/content-management')
 
             }
         })

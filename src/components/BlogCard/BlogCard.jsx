@@ -1,15 +1,16 @@
+'use client';
 import parse from 'html-react-parser';
 import useAuth from "../../Hooks/useAuth";
 import useUserRole from '../../Hooks/useUserRole';
 import { useEffect } from 'react';
-import axiosSecure from '../../hooks/useAxiosSecure';
+import axiosSecure from '../../Hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 
 const BlogCard = ({ blog, setFilter, refetch }) => {
     // console.log(Object.keys(blog).join(","));
     const [userRole, isLoading] = useUserRole();
-    const navigate = useNavigate();
+    const router = useRouter();
     const { user } = useAuth();
     // console.log(user);
     const { _id, blogTitle, imageURL, content, email, blogStatus } = blog;
@@ -30,13 +31,13 @@ const BlogCard = ({ blog, setFilter, refetch }) => {
                         timer: 1500
                     });
                     refetch();
-                    navigate('/dashboard/content-management')
+                    router.push('/dashboard/content-management')
                 }
             })
 
     }
 
-    // draft method 
+    // draft method
     const handleDraft = () => {
         const blogStatus = 'draft';
         axiosSecure.put(`/draft-blog/${_id}`, { blogStatus })
@@ -51,7 +52,7 @@ const BlogCard = ({ blog, setFilter, refetch }) => {
                         timer: 1500
                     });
                     refetch();
-                    navigate('/dashboard/content-management')
+                    router.push('/dashboard/content-management')
                 }
             })
 
@@ -79,7 +80,7 @@ const BlogCard = ({ blog, setFilter, refetch }) => {
                             });
                             refetch();
                             setFilter('all')
-                            navigate('/dashboard/content-management')
+                            router.push('/dashboard/content-management')
                         }
                     });
 

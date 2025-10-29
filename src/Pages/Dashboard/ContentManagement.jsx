@@ -1,6 +1,8 @@
+'use client';
+
 import { useQuery } from '@tanstack/react-query';
 import BlogCard from '../../components/BlogCard/BlogCard';
-import axiosSecure from '../../hooks/useAxiosSecure';
+import axiosSecure from '../../Hooks/useAxiosSecure';
 import { useState } from 'react';
 import { FaArrowAltCircleRight } from "react-icons/fa";
 import addAnimation from '../../assets/animations/addAnimation.json'

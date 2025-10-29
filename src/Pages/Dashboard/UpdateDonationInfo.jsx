@@ -1,16 +1,16 @@
+'use client';
 import { useEffect, useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 import SelectOptions from "../../components/SelectOptions/SelectOptions";
 import axiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
-import { useLoaderData, useNavigate, useParams } from "react-router-dom";
+import { useRouter, useParams } from "next/navigation";
 import { ImSpinner9 } from "react-icons/im";
 
 
-const UpdateDonationInfo = () => {
+const UpdateDonationInfo = ({ donationReqDetails }) => {
     const { id } = useParams();
-    const donationReqDetails = useLoaderData();
-    const { requesterName, requesterEmail, recieptName, address, hospitalName, bloodGroup, time, date, district, upazila, requestMessage, donationStatus } = donationReqDetails;
+    const { requesterName, requesterEmail, recieptName, address, hospitalName, bloodGroup, time, date, district, upazila, requestMessage, donationStatus } = donationReqDetails || {};
 
     const { user, loading } = useAuth();
     const [districts, setDistricts] = useState([]);
@@ -19,7 +19,7 @@ const UpdateDonationInfo = () => {
     const [selectedDistrict, setSelectedDistrict] = useState('');
     const [filteredUpazilas, setFilteredUpazilas] = useState([]);
     const [selectedUpazila, setSelectedUpazila] = useState('');
-    const navigate = useNavigate();
+    const router = useRouter();
 
     // district data load 
     useEffect(() => {
@@ -83,7 +83,7 @@ const UpdateDonationInfo = () => {
                         timer: 1500
                     });
                 }
-                navigate('/dashboard/my-donation-requests')
+                router.push('/dashboard/my-donation-requests')
             })
     }
 

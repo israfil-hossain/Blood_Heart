@@ -1,8 +1,8 @@
+'use client';
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
 
 import Swal from "sweetalert2";
-// import { useNavigate } from "react-router-dom";
 import axiosSecure from "../../hooks/useAxiosSecure";
 import useAuth from "../../Hooks/useAuth";
 import usePaymentHistory from "../../Hooks/usePaymentHistory";
@@ -15,7 +15,6 @@ const PaymentForm = () => {
     const stripe = useStripe();
     const elements = useElements();
     const { user } = useAuth();
-    // const navigate = useNavigate();
 
     const [payments, refetch] = usePaymentHistory(`/payments/${user?.email}`)
 

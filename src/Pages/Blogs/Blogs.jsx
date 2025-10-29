@@ -1,3 +1,5 @@
+'use client';
+
 import { useQuery } from '@tanstack/react-query';
 import useBlogs from '../../Hooks/useBlogs';
 import useLoader from '../../Hooks/useLoader';

@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useState } from "react";
 import Banner from "../../components/Banner/Banner";
 import ContactUs from "../../components/ContactUs/ContactUs";

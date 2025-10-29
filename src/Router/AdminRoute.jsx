@@ -1,4 +1,6 @@
-import { Navigate } from "react-router-dom";
+'use client';
+
+import { useRouter } from "next/navigation";
 import useUserRole from "../Hooks/useUserRole";
 import { Avatar, Card, CardContent, CardHeader, CardMedia, IconButton, Skeleton, Typography } from "@mui/material";
 import React from "react";
@@ -6,6 +8,7 @@ import React from "react";
 
 const AdminRoute = ({ children }) => {
   const [userRole, isLoading] = useUserRole();
+  const router = useRouter();
   // console.log(userRole,isLoading);
   if (isLoading) {
     return <>
@@ -93,8 +96,8 @@ const AdminRoute = ({ children }) => {
     return children;
   }
 
-
-  return <Navigate to={'/dashboard'}></Navigate>
+  router.push('/dashboard');
+  return null;
 };
 
 export default AdminRoute;

@@ -1,4 +1,6 @@
-import { Link, NavLink } from "react-router-dom";
+'use client';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { FaFileWaveform } from "react-icons/fa6";
 import useAuth from "../../Hooks/useAuth";
 import logo from '../../assets/bloodLogo2.png'
@@ -7,6 +9,7 @@ import Lottie from "lottie-react";
 
 const Navbar = () => {
     const { user, logOut } = useAuth();
+    const pathname = usePathname();
 
     const handleLogOut = () => {
         logOut()
@@ -14,48 +17,40 @@ const Navbar = () => {
 
     const links = <>
         <li className="text-xl hover:scale-125 transform transition-transform duration-300">
-            <NavLink
-                to="/"
-                className={({ isActive }) =>
-                    isActive ? "active text-red-500 border-b-4 border-red-500 " : ""
-                }
+            <Link
+                href="/"
+                className={pathname === "/" ? "active text-red-500 border-b-4 border-red-500 " : ""}
             >
                 Home
-            </NavLink>
+            </Link>
         </li>
         <li className="text-xl hover:scale-110 transform transition-transform duration-300">
-            <NavLink
-                to="/donation-requests"
-                className={({ isActive }) =>
-                    isActive ? "active text-red-500 border-b-4 border-red-500" : ""
-                }
+            <Link
+                href="/donation-requests"
+                className={pathname === "/donation-requests" ? "active text-red-500 border-b-4 border-red-500" : ""}
             >
                 Donation Requests
 
-            </NavLink>
+            </Link>
         </li>
         <li className="text-xl hover:scale-110 transform transition-transform duration-300">
-            <NavLink
-                to="/blogs"
-                className={({ isActive }) =>
-                    isActive ? "active text-red-500 border-b-4 border-red-500" : ""
-                }
+            <Link
+                href="/blogs"
+                className={pathname === "/blogs" ? "active text-red-500 border-b-4 border-red-500" : ""}
             >
                 Blogs
 
-            </NavLink>
+            </Link>
         </li>
         {user &&
             <li className="text-xl hover:scale-110 transform transition-transform duration-300">
-                <NavLink
-                    to="/dashboard"
-                    className={({ isActive }) =>
-                        isActive ? "active text-red-500 border-b-4 border-red-500" : ""
-                    }
+                <Link
+                    href="/dashboard"
+                    className={pathname === "/dashboard" ? "active text-red-500 border-b-4 border-red-500" : ""}
                 >
                     Dashboard
 
-                </NavLink>
+                </Link>
             </li>
         }
 
@@ -78,22 +73,20 @@ const Navbar = () => {
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-red-500 rounded-box w-52">
                         {links}
                         <li>
-                            <NavLink
-                                to="/give-fund"
-                                className={({ isActive }) =>
-                                    isActive ? "active text-red-500 border-b-4 border-red-500" : ""
-                                }
+                            <Link
+                                href="/give-fund"
+                                className={pathname === "/give-fund" ? "active text-red-500 border-b-4 border-red-500" : ""}
                             >
-                                
-                                    <span> Give Fund</span>
-                             
 
-                            </NavLink>
+                                    <span> Give Fund</span>
+
+
+                            </Link>
                         </li>
                     </ul>
                 </div>
                 <div>
-                    <Link to='/' className=" hidden md:block text-xl">
+                    <Link href='/' className=" hidden md:block text-xl">
                         <img src={logo} alt="" className=' w-[80px] h-[80px] hover:scale-110 transform transition-transform duration-300' />
 
                     </Link>
@@ -101,27 +94,25 @@ const Navbar = () => {
             </div>
             <div className="navbar-end flex-1 gap-7 ">
                 <button className="hidden md:block text-xl hover:scale-110 transform transition-transform duration-300">
-                    <NavLink
-                        to="/give-fund"
-                        className={({ isActive }) =>
-                            isActive ? "active text-red-500 border-b-4 border-red-500" : ""
-                        }
+                    <Link
+                        href="/give-fund"
+                        className={pathname === "/give-fund" ? "active text-red-500 border-b-4 border-red-500" : ""}
                     >
                         <span className="flex items-center gap-1">
                             <Lottie animationData={fundAnimation} className="w-[100px] mb-5" />
                             <span> Give Fund</span>
                         </span>
 
-                    </NavLink>
+                    </Link>
                 </button>
 
                 {
                     user ?
-                        <Link onClick={handleLogOut} className="btn px-10 hover:bg-red-500 bg-red-700 border-none text-white uppercase">Log out<FaFileWaveform className="text-2xl animate-bounce" />
-                        </Link>
+                        <button onClick={handleLogOut} className="btn px-10 hover:bg-red-500 bg-red-700 border-none text-white uppercase">Log out<FaFileWaveform className="text-2xl animate-bounce" />
+                        </button>
 
 
-                        : <Link to='/register' className="btn px-10 hover:bg-red-500 bg-red-700 border-none text-white uppercase">Register Now <FaFileWaveform className="text-2xl animate-bounce" />
+                        : <Link href='/register' className="btn px-10 hover:bg-red-500 bg-red-700 border-none text-white uppercase">Register Now <FaFileWaveform className="text-2xl animate-bounce" />
                         </Link>
                 }
             </div>
