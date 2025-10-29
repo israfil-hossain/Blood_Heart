@@ -1,4 +1,6 @@
-import { Navigate, useLocation } from "react-router-dom";
+'use client';
+
+import { useRouter, usePathname } from "next/navigation";
 import useAuth from "../Hooks/useAuth";
 import { Avatar, Card, CardContent, CardHeader, CardMedia, IconButton, Skeleton, Typography } from "@mui/material";
 import React from "react";
@@ -7,8 +9,9 @@ import React from "react";
 
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useAuth();
-  const location = useLocation();
-  // console.log(location);
+  const router = useRouter();
+  const pathname = usePathname();
+  // console.log(pathname);
 
   if (loading) {
     return <>
@@ -99,8 +102,8 @@ const PrivateRoute = ({ children }) => {
     return children;
   }
 
-
-  return <Navigate state={location.pathname} to={'/login'} replace></Navigate>
+  router.push('/login');
+  return null;
 };
 
 export default PrivateRoute;

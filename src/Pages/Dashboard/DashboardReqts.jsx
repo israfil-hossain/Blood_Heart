@@ -1,9 +1,11 @@
+'use client';
 import { useEffect } from "react";
 import axiosSecure from "../../hooks/useAxiosSecure";
 import { useState } from "react";
 import DonationRequstsTable from "../../components/DonationRequestsTable/DonationRequstsTable";
 import Swal from "sweetalert2";
-import { Link, useNavigate } from "react-router-dom";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import useAuth from "../../Hooks/useAuth";
 import useUserRole from "../../Hooks/useUserRole";
 import Lottie from "lottie-react";
@@ -15,7 +17,7 @@ const DashboardReqts = () => {
     const [filteredDonationRequests, setFilteredDonationRequests] = useState(donationRequests);
     const [userRole] = useUserRole();
     const { user } = useAuth();
-    const navigate = useNavigate();
+    const router = useRouter();
 
   
     useEffect(() => {
@@ -71,7 +73,7 @@ const DashboardReqts = () => {
         )
             .then(({ data }) => {
                 if (data?.modifiedCount > 0) {
-                    navigate("/dashboard")
+                    router.push("/dashboard")
                     setFilteredDonationRequests((previous) => {
                         previous.forEach((itm) => {
                             if (itm._id == id) {
@@ -161,7 +163,7 @@ const DashboardReqts = () => {
                             </tbody>
                         </table>
                     </div>
-                    <Link to={'/dashboard/my-donation-requests'}>
+                    <Link href={'/dashboard/my-donation-requests'}>
                         <button className="btn w-full bg-red-800 text-white uppercase hover:scale-105 transform transition-transform duration-300 hover:bg-red-500">view my all requests</button>
                     </Link>
                 </div>

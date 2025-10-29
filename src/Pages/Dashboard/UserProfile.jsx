@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 import { FaFilePen } from "react-icons/fa6";

@@ -1,10 +1,9 @@
+'use client';
 import { FaHeartCirclePlus, FaSearchengin } from "react-icons/fa6";
-import { useNavigate } from "react-router-dom";
 import Buttons from "../../sharedComponents/Buttons/Buttons";
 import bannerCover from "../../assets/bannerCover.jpg"
 
 const Banner = () => {
-    const navigate = useNavigate();
     return (
         <div className="min-h-[200px] border-b-8 border-red-500">
             <div className="hero min-h-[705px] bg-fixed" style={{ backgroundImage: `url(${bannerCover})` }}>

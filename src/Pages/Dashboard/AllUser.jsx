@@ -1,6 +1,8 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 import UserDataTable from '../../components/UserDataTable/UserDataTable';
-import axiosSecure from '../../hooks/useAxiosSecure';
+import axiosSecure from '../../Hooks/useAxiosSecure';
 import './AllUser.css'
 import Swal from 'sweetalert2';
 import { useQuery } from '@tanstack/react-query';

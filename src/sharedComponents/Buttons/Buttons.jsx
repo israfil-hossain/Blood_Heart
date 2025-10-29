@@ -1,11 +1,12 @@
+'use client';
 import './button.css'
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 
 const Buttons = ({ buttonText, route, icon, large }) => {
-    const navigate = useNavigate();
+    const router = useRouter();
     const handleClick = () => {
         if (route) {
-            navigate(route);
+            router.push(route);
         }
     };
     // console.log(large);

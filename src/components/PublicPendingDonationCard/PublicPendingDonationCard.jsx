@@ -1,7 +1,8 @@
+'use client';
 import React from 'react';
 import { FaPencil, FaTrashCan } from 'react-icons/fa6';
-import { Link } from 'react-router-dom';
-import axiosSecure from '../../hooks/useAxiosSecure';
+import Link from 'next/link';
+import axiosSecure from '../../Hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
 
 const PublicPendingDonationCard = ({ userRole,pendingDonationReq}) => {
@@ -65,7 +66,7 @@ const PublicPendingDonationCard = ({ userRole,pendingDonationReq}) => {
             </td> */}
 
             <td>
-                <Link to={`/donation-details/${_id}`}>
+                <Link href={`/donation-details/${_id}`}>
                     <button className='btn bg-red-500 text-white border-none'>view</button>
                 </Link>
             </td>

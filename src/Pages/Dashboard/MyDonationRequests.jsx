@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useState } from "react";
 import axiosSecure from "../../hooks/useAxiosSecure";
 import DonationRequstsTable from "../../components/DonationRequestsTable/DonationRequstsTable";

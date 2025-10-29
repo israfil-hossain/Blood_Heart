@@ -1,7 +1,9 @@
+'use client';
+
 import axios from 'axios'
 import { useContext } from 'react'
 import { AuthContext } from '../Provider/AuthProvider'
-import { useNavigate } from 'react-router-dom'
+import { useRouter } from 'next/navigation'
 
 const axiosSecure = axios.create({
     baseURL: 'https://blood-donate-server.vercel.app',
@@ -11,7 +13,7 @@ const axiosSecure = axios.create({
 const useAxiosSecure = () => {
 
     const { logout } = useContext(AuthContext);
-    const navigate = useNavigate();
+    const router = useRouter();
 
     // intercept response and check for unauthorized responses.
     axiosSecure.interceptors.response.use(
@@ -23,7 +25,7 @@ const useAxiosSecure = () => {
                 (error.response.status === 401 || error.response.status === 403)
             ) {
                 await logout();
-                navigate('/login');
+                router.push('/login');
             }
 
             return Promise.reject(error)

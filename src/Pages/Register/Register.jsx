@@ -1,6 +1,8 @@
+'use client';
 import { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { FaCircleCheck } from 'react-icons/fa6';
 import Lottie from 'lottie-react';
@@ -19,7 +21,7 @@ const Register = () => {
 
     const axiosPublic = useAxiosPublic();
 
-    const navigate = useNavigate();
+    const router = useRouter();
     const [registerError, setRegisterError] = useState('');
 
     const [districts, setDistricts] = useState([]);
@@ -135,7 +137,7 @@ const Register = () => {
                     timer: 1500
                 });
 
-                navigate('/');
+                router.push('/');
 
             })
             .catch((err) => {
@@ -166,7 +168,7 @@ const Register = () => {
                         <div className="w-full max-w-xl p-4 rounded-md shadow sm:p-8 bg-gray-800 text-gray-100" >
                             <h2 className="mb-3 text-3xl font-semibold text-center">Register Your Account</h2>
                             <p className="text-sm text-center text-gray-400 hover:scale-110 transform transition-transform duration-300">Already have account?
-                                <Link to='/login' rel="noopener noreferrer" className="focus:underline hover:underline ml-5 text-red-500 text-xl">Login here</Link>
+                                <Link href='/login' rel="noopener noreferrer" className="focus:underline hover:underline ml-5 text-red-500 text-xl">Login here</Link>
                             </p>
                             <form onSubmit={handleRegister} action="" className="space-y-8 mt-10">
                                 <div className="space-y-4" >

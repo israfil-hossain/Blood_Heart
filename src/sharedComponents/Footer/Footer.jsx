@@ -1,5 +1,6 @@
+'use client';
 import { FaArrowTurnUp } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const Footer = () => {
 
@@ -18,24 +19,24 @@ const Footer = () => {
 
                         <ul className="flex flex-wrap items-center space-x-4 sm:space-x-8">
                             <li className="hover:underline hover:scale-110 transform transition-transform duration-300">
-                                <Link to="/give-fund" rel="noopener noreferrer" >Give Fund</Link>
+                                <Link href="/give-fund" rel="noopener noreferrer" >Give Fund</Link>
                             </li>
 
                             <li onClick={scrollToTop} className="hover:underline hover:scale-110 transform transition-transform duration-300">
-                                <Link to={'/'} rel="noopener noreferrer" >Go Top <FaArrowTurnUp className="inline-block text-red-500" />
+                                <Link href={'/'} rel="noopener noreferrer" >Go Top <FaArrowTurnUp className="inline-block text-red-500" />
                                 </Link>
                             </li>
                         </ul>
                     </div>
                     <ul className="flex flex-wrap pl-3 space-x-4 sm:space-x-8">
                         <li className="hover:underline hover:scale-110 transform transition-transform duration-300">
-                            <Link to="/" rel="noopener noreferrer" >Join As a Doner</Link>
+                            <Link href="/" rel="noopener noreferrer" >Join As a Doner</Link>
                         </li>
                         <li className="hover:underline hover:scale-110 transform transition-transform duration-300">
-                            <Link to="/blogs" rel="noopener noreferrer" >Blogs</Link>
+                            <Link href="/blogs" rel="noopener noreferrer" >Blogs</Link>
                         </li>
                         <li className="hover:underline hover:scale-110 transform transition-transform duration-300">
-                            <Link to="/contact-us" rel="noopener noreferrer" className=" text-red-500" >Contact Us</Link>
+                            <Link href="/contact-us" rel="noopener noreferrer" className=" text-red-500" >Contact Us</Link>
                         </li>
                     </ul>
                 </div>

@@ -1,15 +1,17 @@
+'use client';
+
 import { useState } from "react";
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { useRouter, usePathname } from "next/navigation";
 import useAuth from "../../Hooks/useAuth";
 import useUserRole from "../../Hooks/useUserRole";
 import DashboardReqts from "./DashboardReqts";
 import AdminDashboard from "./AdminDashboard";
 import logo from '../../assets/bloodLogo2.png'
 
-const Dashboard = () => {
+const Dashboard = ({ children }) => {
   const [open, setOpen] = useState(true);
-  const navigate = useNavigate();
-  const location = useLocation();
+  const router = useRouter();
+  const pathname = usePathname();
   const { user } = useAuth();
   const [userRole] = useUserRole();
 
@@ -51,7 +53,7 @@ const Dashboard = () => {
 
   // console.log(userRole, "----->", Menus);
 
-  const isDashboardActive = location.pathname === `/dashboard`;
+  const isDashboardActive = pathname === `/dashboard`;
 
   return (
     <div className="flex ">
@@ -65,7 +67,7 @@ const Dashboard = () => {
            border-2 rounded-full  ${!open && "rotate-180"}`}
           onClick={() => setOpen(!open)}
         />
-        <div onClick={() => navigate('/')} className="flex gap-x-4 items-center">
+        <div onClick={() => router.push('/')} className="flex gap-x-4 items-center">
           <img
             src={logo}
             className={`cursor-pointer duration-500 ${open && "rotate-[360deg]  w-[80px] h-[80px]"
@@ -82,13 +84,13 @@ const Dashboard = () => {
           {Menus.map((Menu, index) => (
             <li
               onClick={() => {
-                navigate(`${Menu.link}`);
+                router.push(`${Menu.link}`);
               }}
               key={index}
-              className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4 
+              className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4
               ${Menu.gap ? "mt-20" : "mt-2"} ${index === 0 && "border border-red-500"}
-              ${location.pathname == `/dashboard/${Menu?.link}` ? "bg-red-500" : ""}
-              
+              ${pathname == `/dashboard/${Menu?.link}` ? "bg-red-500" : ""}
+
               `}
             >
 
@@ -122,7 +124,7 @@ const Dashboard = () => {
             }
           </div>
         }
-        <Outlet></Outlet>
+        {children}
       </div>
     </div>
   );

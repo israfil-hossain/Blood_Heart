@@ -1,7 +1,8 @@
+'use client';
 import React from 'react';
 import { FaPencil, FaTrashCan } from 'react-icons/fa6';
-import { Link } from 'react-router-dom';
-import axiosSecure from '../../hooks/useAxiosSecure';
+import Link from 'next/link';
+import axiosSecure from '../../Hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
 
 const DonationRequstsTable = ({ userRole,donationReq, handleDelteReq,handleDone,handleCancel }) => {
@@ -43,7 +44,7 @@ const DonationRequstsTable = ({ userRole,donationReq, handleDelteReq,handleDone,
 
              { userRole === 'admin' | userRole === 'donor' &&
                    <><div className="dropdown dropdown-top dropdown-end">
-                   <Link to={`/update-donation-info/${_id}`}>
+                   <Link href={`/update-donation-info/${_id}`}>
                        <label tabIndex={0} className="btn m-1">
                            <FaPencil className="text-base" />
                        </label>
@@ -51,17 +52,17 @@ const DonationRequstsTable = ({ userRole,donationReq, handleDelteReq,handleDone,
 
                </div>
 
-               <Link onClick={handleDelteReq}>
+               <button onClick={handleDelteReq}>
                    <div>
                        <FaTrashCan className="hover:text-red-500 text-3xl" />
                    </div>
-               </Link></> ||  userRole == 'volunteer' && '----'
+               </button></> ||  userRole == 'volunteer' && '----'
              }
              
             </td>
 
             <td>
-                <Link to={`/donation-details/${_id}`}>
+                <Link href={`/donation-details/${_id}`}>
                     <button className='btn bg-red-500 text-white'>view</button>
                 </Link>
             </td>

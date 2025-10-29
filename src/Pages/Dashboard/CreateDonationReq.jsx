@@ -1,9 +1,10 @@
+'use client';
 import { useEffect, useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 import SelectOptions from "../../components/SelectOptions/SelectOptions";
 import axiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 import { ImSpinner9 } from "react-icons/im";
 
 
@@ -15,7 +16,7 @@ const CreateDonationReq = () => {
     const [selectedDistrict, setSelectedDistrict] = useState('');
     const [filteredUpazilas, setFilteredUpazilas] = useState([]);
     const [selectedUpazila, setSelectedUpazila] = useState('');
-    const navigate = useNavigate();
+    const router = useRouter();
 
     const [userStatus, setUserStatus] = useState('');
     // district data load 
@@ -80,7 +81,7 @@ const CreateDonationReq = () => {
                         timer: 1500
                     });
                 }
-                navigate('/dashboard')
+                router.push('/dashboard')
             })
     }
 
